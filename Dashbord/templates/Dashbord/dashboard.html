@@ -1,0 +1,228 @@
+{% extends 'Dashbord/base.html' %}
+
+{% block head %}
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="/static/Dashbord/scripts/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+
+
+
+    <style>
+    .lw {
+    display:table;
+    margin-left: -35px;
+    height: 500px;
+     width: 665px ;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    -webkit-box-shadow: 3px 3px 25px #000000;
+    -moz-box-shadow: 3px 3px 25px #000000;
+    box-shadow: 3px 3px 25px #000000;
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -o-transform: scale(0.9)
+    background-color: #DDDDDD;
+    padding: 20px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 120pt;
+    color: #888888; }
+
+    .base {
+    width: auto;
+    margin-left: -360px;
+    margin-right: 0px;
+    min-width: 1000px;
+    padding: 0px;
+    display:table;
+    }
+    .base-row {
+    Display: table-row;
+    }
+    .base li {
+    display: table-cell;
+    width: 33%;
+    }
+
+    </style>
+
+
+<script>
+$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data) {
+
+    var lastDate = data[data.length - 1][0],  // Get year of last data point
+        days = 24 * 36e5; // Milliseconds in a day
+
+    // Create the chart
+    Highcharts.stockChart('container', {
+
+        rangeSelector: {
+            selected: 1
+        },
+
+        title: {
+            text: 'Доход по Дивизиону Москва'
+        },
+
+        yAxis: {
+            title: {
+                text: 'Exchange rate'
+            }
+        },
+
+        series: [{
+            name: 'USD to EUR',
+            data: data,
+            id: 'dataseries',
+            tooltip: {
+                valueDecimals: 4
+            }
+        }, {
+            type: 'flags',
+            name: 'Flags on series',
+            data: [{
+                x: lastDate - 60 * days,
+                title: 'On series'
+            }, {
+                x: lastDate - 30 * days,
+                title: 'On series'
+            }],
+            onSeries: 'dataseries',
+            shape: 'squarepin'
+        }, {
+            type: 'flags',
+            name: 'Flags on axis',
+            data: [{
+                x: lastDate - 45 * days,
+                title: 'On axis'
+            }, {
+                x: lastDate - 15 * days,
+                title: 'On axis'
+            }],
+            shape: 'squarepin'
+        }]
+    });
+});
+
+</script>
+
+
+<script>
+$.getJSON('http://127.0.0.1:8000/app/json/',
+     function (data) {
+
+    // Create the chart
+    Highcharts.stockChart('container2', {
+
+        rangeSelector: {
+            selected: 1
+        },
+
+        title: {
+            text: 'Доход по Дивизиону Санкт-Петербург'
+        },
+
+
+           yAxis: {
+            title: {
+                text: 'Доход'
+            }
+        },
+
+
+        series: [{
+            name: 'Division 1',
+            data: data,
+            id: 'dataseries',
+            tooltip: {
+                valueDecimals: 0
+            }
+        }, {
+        name: 'Division 2',
+        data: data,
+            id: 'dataseries2',
+            lineWidth: 5,
+            color: "#00FF00"
+    }
+
+        ]
+    });
+});
+
+</script>
+
+<script>
+$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data) {
+
+    var lastDate = data[data.length - 1][0],  // Get year of last data point
+        days = 24 * 36e5; // Milliseconds in a day
+
+    // Create the chart
+    Highcharts.stockChart('container3', {
+
+        rangeSelector: {
+            selected: 1
+        },
+
+        title: {
+            text: 'Доход по Дивизиону Сочи'
+        },
+
+        yAxis: {
+            title: {
+                text: 'Exchange rate'
+            }
+        },
+
+        series: [{
+            name: 'USD to EUR',
+            data: data,
+            id: 'dataseries',
+            tooltip: {
+                valueDecimals: 4
+            }
+        }, {
+            type: 'flags',
+            name: 'Flags on series',
+            data: [{
+                x: lastDate - 60 * days,
+                title: 'On series'
+            }, {
+                x: lastDate - 30 * days,
+                title: 'On series'
+            }],
+            onSeries: 'dataseries',
+            shape: 'squarepin'
+        }, {
+            type: 'flags',
+            name: 'Flags on axis',
+            data: [{
+                x: lastDate - 45 * days,
+                title: 'On axis'
+            }, {
+                x: lastDate - 15 * days,
+                title: 'On axis'
+            }],
+            shape: 'squarepin'
+        }]
+    });
+});
+
+</script>
+
+
+{% endblock  %}
+
+{% block content %}
+
+
+<div>
+                    <ul class="base">
+                    <li><a class="lw" id="container"></a></li>
+                    <li><a class="lw" id="container2"></a></li>
+                    <li><a class="lw" id="container3"></a></li>
+                    </ul>
+</div>
+
+{% endblock %}

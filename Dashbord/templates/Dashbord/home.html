@@ -1,0 +1,32 @@
+{% extends "Dashbord/base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+     <script src="{% static 'Dashbord/scripts/jquery-1.10.2.min.js' %}"></script>
+     <script>
+$.ajax({
+  type: "POST",
+  url: "http://127.0.0.1:8000/app/json/",
+  success: function(msg){
+    alert( "Прибыли данные: " + msg );
+  }
+});
+
+     </script>
+
+
+
+{% endblock %}
+
+
+
+{% block content %}
+    <h1> Идет разработка сайта</h1>
+    <ui id="show_content"></ui>
+
+{% endblock %}
+
+
+
+
+
