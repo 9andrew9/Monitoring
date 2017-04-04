@@ -49,6 +49,9 @@
 
 
 <script>
+
+
+
 $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data) {
 
     var lastDate = data[data.length - 1][0],  // Get year of last data point
@@ -109,46 +112,57 @@ $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.jso
 
 
 <script>
-$.getJSON('http://127.0.0.1:8000/app/json/',
-     function (data) {
 
-    // Create the chart
-    Highcharts.stockChart('container2', {
+$(document).ready(
+    $.ajax({
+    type: 'POST',
+    dataType: "JSON",
+    url: "http://127.0.0.1:8000/app/json/",
+    success: function (data) {
+        // Create the chart
+        var msg = [[1442485171000,3323455107],
+                    [1442485172000,7855107],
+                    [1442485173000,1454555107],
+                    [1442485174000,455107],
+                    [1442485174000,6655107],
+                    [1442485175000,3345]];
 
-        rangeSelector: {
-            selected: 1
-        },
+        Highcharts.stockChart('container2', {
 
-        title: {
-            text: 'Доход по Дивизиону Санкт-Петербург'
-        },
+            rangeSelector: {
+                selected: 1
+            },
 
-
-           yAxis: {
             title: {
-                text: 'Доход'
+                text: 'Доход по Дивизиону Санкт-Петербург'
+            },
+
+            yAxis: {
+                title: {
+                    text: 'Доход'
+                }
+            },
+
+            series: [{
+                name: 'Division',
+                data: msg,
+                id: 'dataseries',
+                lineWidth: 5,
+                color: "#00FF00"
+            },
+                {
+                name: 'Division',
+                data: data,
+                id: 'dataseries',
+                lineWidth: 5
             }
-        },
-
-
-        series: [{
-            name: 'Division 1',
-            data: data,
-            id: 'dataseries',
-            tooltip: {
-                valueDecimals: 0
-            }
-        }, {
-        name: 'Division 2',
-        data: data,
-            id: 'dataseries2',
-            lineWidth: 5,
-            color: "#00FF00"
-    }
-
-        ]
-    });
-});
+            ]
+        })
+    },
+        error: function() {
+    alert('Error loading PatientID=')
+  }
+}));
 
 </script>
 
