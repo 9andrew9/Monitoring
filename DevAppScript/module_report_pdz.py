@@ -18,11 +18,11 @@ def connection_to_data_bases():
         print("Opened database successfully")
         cur = conn.cursor()
         # <editor-fold desc="Description">
-        cur.execute('select msb,\
+        cur.execute("select msb,\
                      subdivisoin,\
                      outstanding_balance_contract,\
                      balance_delay_dfl,index_pdz\
-                     from report_pdz;')
+                     from report_pdz;")
         # </editor-fold>
         rows = cur.fetchall()
         conn.close()
@@ -37,8 +37,8 @@ def insert_to_flux_d_b(rows):
             a = row
             array = re.sub(r'\s+', '_', row[0]), re.sub(r'\s+', '_', row[1]), re.sub(r',', '.', row[4])
             proc = re.sub(r'%', '', array[2])
-            column1 = array[0]
-            column2 = array[1]
+            column1 = array[0].encode('utf-8')
+            column2 = array[1].encode('utf-8')
             column3 = a[2]
             column4 = a[3]
             column5 = proc
