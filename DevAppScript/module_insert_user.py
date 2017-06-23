@@ -10,7 +10,7 @@ import sys
 import re
 import requests
 
-keys = {'key': 'f17b99d2b7e8ed6315b66389d1ebe8e4c81108bd'}
+keys = {'key': 'f27b99d2b7e8ed6315b66389d1ebe8e4c81108bd'}
 headers = {'Content-type': 'text/xml'}
 
 with open('users_redmine', 'r') as f:
