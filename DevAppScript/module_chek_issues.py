@@ -21,7 +21,7 @@ SendMailTo = ['avs85@europlan.ru']
 ServerExch = 'srv-exch13-01.enterprise.local'
 
 conn = psycopg2.connect(database="sd", user="redmine_user", password="trunk212", host="172.28.0.26", port="5434")
-print "Opened database successfully"
+print("Opened database successfully")
 
 cur = conn.cursor()
 
@@ -53,6 +53,6 @@ for row in rows:
                 send = mail.SendMail(ServerMail, SendMailFrom, SendMailTo, mess)
                 send
             else:
-                print "%s != %s" % (ToExpDay, NowDateTime)
+                print ("%s != %s" % (ToExpDay, NowDateTime))
         else:
-            print "Error item date"
+            print ("Error item date")
