@@ -40,6 +40,7 @@ mounth = MonthDelta(now).strftime("%Y-%m-%d")
 users = "'aao9', 'pnd','rmb','san6','ivv4'"
 
 
+#
 def SendMail(ServerMail, SendMailFrom, SendMailTo, message):
     connect = smtplib.SMTP(ServerMail)
     tolist = SendMailTo
