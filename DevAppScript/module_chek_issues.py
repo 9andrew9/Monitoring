@@ -17,10 +17,10 @@ n = pref.strftime('%Y-%m-%d %H')
 
 ServerMail = '172.24.3.81'
 SendMailFrom = "suz@europlan.ru"
-SendMailTo = ['avs85@europlan.ru']
+SendMailTo = ['test@europlan.ru']
 ServerExch = 'srv-exch13-01.enterprise.local'
 
-conn = psycopg2.connect(database="sd", user="redmine_user", password="trunk212", host="172.28.0.26", port="5434")
+conn = psycopg2.connect(database="sd", user="redmine_user", password="test", host="172.28.0.26", port="5434")
 print("Opened database successfully")
 
 cur = conn.cursor()

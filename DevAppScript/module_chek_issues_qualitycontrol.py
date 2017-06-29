@@ -64,10 +64,10 @@ DBN = 'NameDataBase'
 
 ServerMail = '172.24.3.81'
 SendMailFrom = "cc-quality@europlan.ru"
-SendMailTo = ['avs85@europlan.ru']
+SendMailTo = ['test@europlan.ru']
 ServerExch = 'srv-exch13-01.enterprise.local'
 DBH = '172.28.0.125'
-DBPASS = 'trunk212'
+DBPASS = '--'
 DBPORT = '5434'
 DBU = 'redmine_user'
 DBN = 'qualitycontrol'

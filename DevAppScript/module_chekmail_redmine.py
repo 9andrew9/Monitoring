@@ -20,7 +20,7 @@ import module_mail as mail
 
 ServerMail = '172.24.3.81'
 SendMailFrom = "suz@europlan.ru" 
-SendMailTo = [ 'avs85@europlan.ru' ]
+SendMailTo = [ 'test@europlan.ru' ]
 ServerExch = 'srv-exch13-01.enterprise.local'
 PathToFile = 'rake_file.txt'
 

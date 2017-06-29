@@ -20,9 +20,9 @@ checkurl.getr()
 #print  checkurl.getr()
 '''
 ServerMail = '172.24.3.81'
-SendMailFrom = 'avs85@europlan.ru' 
-SendMailTo = 'avs85@europlan.ru'
-message = From:avs85@europlan.ru
+SendMailFrom = 'test@europlan.ru' 
+SendMailTo = 'test@europlan.ru'
+message = From:test@europlan.ru
 Subject:test    
 
 Alarm

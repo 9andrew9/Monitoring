@@ -14,7 +14,7 @@ import requests
 
 def connection_to_data_bases():
     try:
-        conn = psycopg2.connect(database="devapp", user="root", password="trunk212", host="172.27.0.106", port="5432")
+        conn = psycopg2.connect(database="devapp", user="root", password="test", host="172.27.0.106", port="5432")
         print("Opened database successfully")
         cur = conn.cursor()
         # <editor-fold desc="Description">
