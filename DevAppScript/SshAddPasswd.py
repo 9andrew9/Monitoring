@@ -16,7 +16,7 @@ f = tempfile.TemporaryFile()
 
 host = ['172.27.0.51']
 user = "root"
-secret = ",.h0rhfnbz"
+secret = "test"
 command_linux_cmd = "hostname;hpacucli ctrl all show config"
 data = []
 try:
