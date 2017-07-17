@@ -16,10 +16,10 @@ import psycopg2
 
 ServerMail = '172.24.3.81'
 SendMailFrom = "report@europlan.ru"
-SendMailTo = ['avs85@europlan.ru', 'aao9@europlan.ru']
+SendMailTo = ['test@europlan.ru', 'test2@europlan.ru']
 ServerExch = 'srv-exch13-01.enterprise.local'
 DBH = '172.28.0.125'
-DBPASS = 'trunk212'
+DBPASS = '---'
 DBPORT = '5434'
 DBU = 'redmine_user'
 DBN = 'sd'
